@@ -40,7 +40,7 @@ sort → sıralama
         // { pageRequest, dynamicQuery }: KatalogSearchParams şeklinde de yazılabilir.Altta tanımlanan
         // params değişkenine gerek yok.
 
-         
+
         try {
             const { pageRequest, dynamicQuery } = params;
             const response = await api.post<GetListResponse<KatalogListItem>>('/Kataloglar/GetList/ByDynamic',
@@ -58,5 +58,14 @@ sort → sıralama
             throw new Error(`Katalog araması yapılırken hata : ${error.message}`)
         }
 
+    },
+    async getById(id: string): Promise<KatalogListItem> {
+        try {
+            var response = await api.get<KatalogListItem>(`/Kataloglar/${id}`);
+            return response.data;
+        } catch (error: any) {
+            throw new Error(`Katalog getirilirken hata oluştu: ${error.message}`);
+
+        }
     }
 }
