@@ -1,0 +1,85 @@
+/* Design-only UI (no services/db). */
+:root{
+  --bg: #f3f6fb;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: rgba(15, 23, 42, 0.08);
+
+  --brand: #e11d48;         /* MEB red */
+  --brand-2: #ff3b6b;
+
+  --success: #10b981;
+  --info: #3b82f6;
+  --warn: #f97316;
+
+  --sidebar-a: #0b1220;
+  --sidebar-b: #0f1b2e;
+
+  --shadow: 0 18px 60px rgba(15, 23, 42, 0.10);
+  --shadow-sm: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --radius-xl: 20px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 600px at 10% 0%, rgba(225, 29, 72, 0.10), transparent 60%),
+              radial-gradient(900px 500px at 100% 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+              var(--bg);
+}
+
+a{ color: inherit; }
+button, input{ font-family: inherit; }
+
+.container{
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.h1{ font-size: 28px; line-height: 1.1; margin: 0; }
+.subtle{ color: var(--muted); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .2s, filter .2s;
+  border: none;
+}
+
+.btn.small {
+  padding: 9px 12px;
+  font-size: 13px;
+}
+
+.btn .ic {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* Hover & Active */
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.btn:active {
+  transform: translateY(0);
+  filter: brightness(.95);
+}
+
