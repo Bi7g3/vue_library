@@ -67,5 +67,51 @@ sort → sıralama
             throw new Error(`Katalog getirilirken hata oluştu: ${error.message}`);
 
         }
+    },
+    async create(request: CreateKatalogRequest): Promise<CreatedKatalogResponse> {
+        try {
+            const response = await api.post<CreatedKatalogResponse>('/Kataloglar', {
+                baslik: request.baslik,
+                isbn: request.isbn || null,
+                issn: request.issn || null,
+                altBaslik: request.altBaslik,
+                yazarAdi: request.yazarAdi,
+                yazarAdiEk: request.yazarAdiEk,
+                yayinevi: request.yayinevi || null,
+                basimYeri: request.basimYeri,
+                basimYili: request.basimYili,
+                basimSayisi: request.basimSayisi,
+                dilKodu: request.dilKodu,
+                materyalTuru: request.materyalTuru,
+                altTuru: request.altTuru,
+                sekil: request.sekil,
+                ortam: request.ortam,
+                deweyNumarasi: request.deweyNumarasi,
+                yerNumarasi: request.yerNumarasi,
+                konuBasliklari: request.konuBasliklari,
+                diziAdi: request.diziAdi,
+                diziId: request.diziId,
+                notlar: request.notlar,
+                fizikselTanitim: request.fizikselTanitim,
+                marc21Verisi: request.marc21Verisi,
+                rdaUyumluMu: request.rdaUyumluMu,
+                aacr2UyumluMu: request.aacr2UyumluMu,
+                aacr2Versiyon: request.aacr2Versiyon,
+                z3950Kaynak: request.z3950Kaynak,
+                z3950KayitNo: request.z3950KayitNo,
+                cevrimiciYardim: request.cevrimiciYardim,
+                turkceAnahtarKelimeler: request.turkceAnahtarKelimeler,
+                zorunluAlanlarDoluMu: request.zorunluAlanlarDoluMu,
+                ilintiAlani: request.ilintiAlani,
+                elektronikLinkler: request.elektronikLinkler
+            }
+
+
+            );
+            return response.data;
+        } catch (error: any) {
+            throw new Error(`Katalog oluşturulurken hata oluştu: ${error.message}`);
+        }
+
     }
 }
